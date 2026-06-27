@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --container-content: 1200px;   /* container utama */
+    --container-wide: 1400px;      /* hero, blok full-bleed */
+
+    --color-bg: #F2F4F3;
+    --color-text: #16201E;
+    --color-muted: #5F6B68;
+    --color-accent: #2D8B7F;
+    --color-line: #C9D2CF;
+}
+
+@utility font-grotesk {
+    font-family: var(--space-grotesk);
+}
+
+@utility font-inter {
+    font-family: var(--inter);
+}
+
+@utility font-jetbrains {
+    font-family: var(--jetbrains);
+}
+
+:root {
+    /* typografi */
+    --space-grotesk: "Space Grotesk", sans-serif; 
+    --inter: "Inter", sans-serif;
+    --jetbrains: "JetBrains Mono", monospace;
+}
+
+:root[data-theme="dark"] {
+    --color-bg: #14201D;
+    --color-text: #F2F4F3;
+    --color-muted: #7E908B;
+    --color-accent: #3DBBA5;
+    --color-line: #2A3A36;
+}
+
