@@ -1,0 +1,53 @@
+---
+import type { JourneyItem } from "../types/perjalanan";
+import type { Now as NowType } from "../types/now";
+import Now from "./Now.astro";
+
+interface Props {
+    journey: JourneyItem[];
+    now: NowType;
+}
+
+const { journey, now } = Astro.props as Props;
+---
+
+<div id="perjalanan" class="py-24 w-full border-b border-accent/20 scroll-mt-20">
+    <div class="max-w-content w-full mx-auto px-6 md:px-8">
+        <div class="text-sm">
+            <p class="font-jetbrains text-accent tracking-widest">03 / PERJALANAN</p>
+        </div>
+        <span class="mt-4 block h-px w-full bg-line"></span>
+
+        <div class="mt-10 grid lg:grid-cols-2 gap-12 items-start">
+            <!-- Kiri: timeline -->
+            <ol>
+                {journey.map((item, i) => (
+                    <li class="relative flex gap-6 pb-10 last:pb-0">
+                    <!-- Garis vertikal + titik -->
+                    <div class="relative flex flex-col items-center">
+                        <span
+                            class:list={[
+                                "mt-1 w-3 h-3 rounded-full shrink-0 z-10",
+                                item.current ? "bg-accent" : "bg-bg border-2 border-line",
+                            ]}
+                        ></span>
+                        {i < journey.length - 1 && (
+                            <span class="absolute top-1 left-1/2 -translate-x-1/2 w-px h-full bg-line"></span>
+                        )}
+                    </div>
+
+                    <!-- Isi -->
+                    <div class="-mt-1">
+                        <p class="font-jetbrains text-xs uppercase tracking-widest text-accent">{item.year}</p>
+                        <h3 class="mt-1 text-xl md:text-2xl font-grotesk font-medium tracking-tight">{item.title}</h3>
+                        <p class="mt-2 text-muted text-sm leading-relaxed">{item.description}</p>
+                    </div>
+                    </li>
+                ))}
+            </ol>
+
+            <!-- Kanan: panel Now -->
+            <Now now={now} />
+        </div>
+    </div>
+</div>

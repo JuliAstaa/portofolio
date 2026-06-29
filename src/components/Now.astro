@@ -1,0 +1,37 @@
+---
+import type { Now } from "../types/now";
+
+interface Props {
+    now: Now;
+}
+
+const { now } = Astro.props as Props;
+---
+
+<!-- Panel Now: gelap beraksen toska. Dipakai di dalam section Perjalanan. -->
+<div id="now" class="scroll-mt-20 rounded-2xl bg-panel text-panel-text p-8 md:p-10">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 font-jetbrains text-xs uppercase tracking-widest text-accent">
+            <span class="w-2 h-2 rounded-full bg-accent block"></span>
+            <span>Sedang berjalan</span>
+        </div>
+        <span class="font-jetbrains text-xs uppercase tracking-widest text-panel-muted">Now</span>
+    </div>
+
+    <p class="mt-5 text-2xl md:text-3xl font-grotesk font-medium tracking-tight leading-snug">
+        {now.focus}
+    </p>
+
+    <p class="mt-8 font-jetbrains text-xs uppercase tracking-widest text-panel-muted">Sedang dipelajari</p>
+    <div class="mt-3 flex flex-wrap gap-2">
+        {now.learning.map((item) => (
+            <span class="font-jetbrains text-xs rounded-full border border-panel-line text-panel-text py-1 px-4">{item}</span>
+        ))}
+    </div>
+
+    <p class="mt-8 text-panel-muted leading-relaxed">{now.goal}</p>
+
+    <p class="mt-8 font-jetbrains text-xs uppercase tracking-widest text-panel-muted">
+        Diperbarui · {now.updated}
+    </p>
+</div>

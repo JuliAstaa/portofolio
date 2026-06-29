@@ -13,6 +13,12 @@
     --color-muted: #5F6B68;
     --color-accent: #2D8B7F;
     --color-line: #C9D2CF;
+
+    /* panel gelap (Now): sengaja gelap di dua mode */
+    --color-panel: #16201E;
+    --color-panel-text: #F2F4F3;
+    --color-panel-muted: #B8C4C0;
+    --color-panel-line: #2A3A36;
 }
 
 @utility font-grotesk {
@@ -40,5 +46,8 @@
     --color-muted: #7E908B;
     --color-accent: #3DBBA5;
     --color-line: #2A3A36;
+
+    /* panel sedikit beda tone di dark biar tetap kebaca di atas bg gelap */
+    --color-panel: #1A3A33;
 }
 
