@@ -1,23 +1,36 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Juli Astawa — Backend Developer",
+	description = "Portofolio Juli Astawa, backend developer dari Denpasar. Membangun REST API yang efisien, tangguh, dan ramah frontend.",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="id">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<!-- Set tema sebelum paint biar gak flash (FOUC). Toggle nyusul. -->
+		<script is:inline>
+			const stored = localStorage.getItem("theme");
+			const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+			document.documentElement.dataset.theme = stored ?? (prefersDark ? "dark" : "light");
+		</script>
 	</head>
-	<body>
+	<body class="bg-bg text-text font-inter antialiased">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,27 @@
+---
+// Garis kontur peta topografi: ring konsentris samar.
+// Elemen grafis jembatan Swiss (sistem) <-> alam (gunung).
+// Dipakai sebagai background absolut; warna ikut --color-accent.
+const rings = [1, 1.28, 1.6, 1.96, 2.36, 2.8, 3.28];
+const cx = 600;
+const cy = 320;
+const blob =
+    "M 480 300 C 480 240 540 200 600 200 C 672 200 732 250 720 312 C 712 364 660 402 590 396 C 520 390 480 360 480 300 Z";
+---
+
+<svg
+    class="text-accent w-full h-full"
+    viewBox="0 0 800 420"
+    fill="none"
+    preserveAspectRatio="xMaxYMax slice"
+    aria-hidden="true"
+>
+    {rings.map((s) => (
+        <path
+            d={blob}
+            stroke="currentColor"
+            stroke-width={1 / s}
+            transform={`translate(${cx} ${cy}) scale(${s}) translate(${-cx} ${-cy})`}
+        />
+    ))}
+</svg>
