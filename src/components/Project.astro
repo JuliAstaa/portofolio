@@ -1,0 +1,95 @@
+---
+
+import type { Project } from "../types/project";
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props as Props;
+
+---
+
+<div class="py-24 w-full border-b border-accent/20">
+    <div class="max-w-content w-full h-full mx-auto">
+        <div id="project" class="flex justify-between text-sm">
+            <p class="font-jetbrains text-accent tracking-widest">01 / KARYA</p>
+            <p class="font-jetbrains tracked-widest text-muted">FEATURED & EXPERIMENT</p>
+        </div>
+        <span class="mt-4 block h-0.5 w-full bg-accent"></span>
+        <div class="mt-5 main-project flex justify-between">
+            <div class="left-content ">
+                <div class="user-active flex gap-2 items-center bg-accent/20 py-1 px-4 rounded-full text-xs text-muted font-jetbrains">
+                    <span class="block w-2 h-2 bg-accent rounded-full"></span> <p>Live · ada user aktif</p>
+                </div>
+                <div class="flex flex-col gap-4 mt-4">
+                    <div class="title text-6xl">
+                        <h1>{project.title}</h1>
+                    </div>
+                    <div>
+                        <p class="font-mono">
+                            {project.description}
+                        </p>
+                    </div>
+                    <div class="techstack flex gap-2">
+                        {project.techstack.map((tech) => (
+                            <span class="bg-accent/20 font-jetbrains text-accent text-xs rounded-full py-1 px-2">{tech}</span>
+                        ))}
+                    </div>
+                    <div class="action-button flex gap-4">
+                        <a class="block px-5 py-3 bg-accent font-mono text-white text-sm rounded-xl" href={project.links.live}>Buka Produk</a>
+                        <a class="border border-accent rounded-xl px-5 py-3 cursor-pointer font-mono text-sm text-accent">Case Studi</a>
+                        <a class="border border-accent rounded-xl px-5 py-3 cursor-pointer font-mono text-sm text-accent">Repo</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-content">
+                <div class="rounded-2xl border border-line">
+
+                    <!-- Label atas -->
+                    <div class="border-b border-line px-8 pt-6 pb-4">
+                    <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">Metrik Live</p>
+                    </div>
+
+                    <!-- Baris metrik (pola berulang) -->
+                    <div class="flex items-baseline justify-between border-b border-line px-8 py-6">
+                    <p class="text-6xl font-medium tracking-tight">340</p>
+                    <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">User aktif</p>
+                    </div>
+
+                    <div class="flex items-baseline justify-between border-b border-line px-8 py-6">
+                    <p class="text-6xl font-medium tracking-tight">99,9<span class="text-accent">%</span></p>
+                    <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">Uptime</p>
+                    </div>
+
+                    <div class="flex items-baseline justify-between px-8 py-6">
+                    <p class="text-6xl font-medium tracking-tight">14 <span class="text-accent">bln</span></p>
+                    <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">Berjalan</p>
+                    </div>
+
+                </div>
+                </div>
+
+        </div>
+        <div>
+            <p class="text-xs text-muted font-jetbrains tracking-widest">EXPERIMENT & LATIHAN</p>
+            <div class="mt-2 w-full flex gap-2">
+                <div class="w-full border border-accent/20 rounded-md p-2 ">
+                    <h1 class="text-2xl font-grotesk">WEB Profile IDC</h1>
+                    <p class="my-2 font-mono">Web buat profile Unit Kegiatan Mahasiswa INSTIKI Developer Club</p>
+                    <p class="text-muted text-xs font-jetbrains">
+                        <span>React · TyperScript · Vite · TailwindCSS</span>
+                    </p>
+                </div>
+                <div class="w-full border border-accent/20 rounded-md p-2 ">
+                    <h1 class="text-2xl font-grotesk">WEB Profile IDC</h1>
+                    <p class="my-2 font-mono">Web buat profile Unit Kegiatan Mahasiswa INSTIKI Developer Club</p>
+                    <p class="text-muted text-xs font-jetbrains">
+                        <span>React · TyperScript · Vite · TailwindCSS</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,22 +1,44 @@
-## Development
+# AGENTS.md — Panduan buat AI Coding Assistant (Opsional)
 
-When starting the dev server, use background mode:
+> Catatan: file ini opsional. Kamu mau bangun sendiri dari awal, jadi pakai ini cuma kalau sewaktu-waktu butuh bantuan AI dan mau hasilnya nyambung sama gaya project. Taruh di root project (`AGENTS.md` atau `.cursorrules` / `CLAUDE.md` tergantung tool).
 
-```
-astro dev --background
-```
+## Konteks project
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Ini portofolio pribadi seorang developer, dibangun dengan Astro. Pemiliknya sengaja membangun sendiri untuk belajar dan rasa pencapaian. Jadi: **jangan ambil alih dan tulis semuanya sekaligus.** Bantu per bagian, jelaskan alasannya, biarkan dia yang merakit.
 
-## Documentation
+## Prinsip kerja
 
-Full documentation: https://docs.astro.build
+1. **Jelaskan sebelum menulis kode.** Tujuannya dia paham, bukan cuma dapat hasil.
+2. **Potongan kecil.** Satu komponen atau satu masalah per langkah.
+3. **Jangan ubah file di luar yang diminta.**
+4. **Pertahankan stack & pola yang sudah ada.** Jangan introduce library baru tanpa alasan kuat dan tanpa nanya.
+5. **Konten kepisah dari kode.** Data project/teks ada di Markdown/config, bukan di-hardcode di komponen.
 
-Consult these guides before working on related tasks:
+## Stack
 
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+- Astro (static output).
+- Styling: CSS murni dengan custom properties (design token), atau Tailwind kalau dipilih. Konsisten dengan yang sudah dipakai.
+- Konten: Astro Content Collections (Markdown/MDX).
+- Deploy: Vercel atau Netlify.
+
+## Sistem desain (wajib dipatuhi)
+
+- Aksen toska: `#2D8B7F` (light) / `#3DBBA5` (dark).
+- Background: `#F2F4F3` (light) / `#14201D` (dark).
+- Semua warna lewat CSS custom properties biar light/dark otomatis. Jangan hardcode hex di komponen.
+- Tipografi: heading grotesk besar, body sans, label mono. Dua weight: 400 dan 500.
+- Sentence case untuk heading/body. UPPERCASE hanya label mono kecil.
+- Nomor section editorial (`01 / Index`). Garis kontur topografi samar sebagai elemen grafis.
+- Detail lengkap di `01-claude-design-brief.md`.
+
+## Yang harus dihindari
+
+- Menulis ulang seluruh halaman tanpa diminta.
+- Menambah dependency berat.
+- Mengubah palet atau tipografi tanpa konfirmasi.
+- Inline style berantakan; pakai token.
+- Menghapus komentar atau konten pemilik.
+
+## Saat ragu
+
+Tanya dulu. Pemilik lebih suka diajak diskusi daripada dikasih hasil jadi yang dia nggak paham.
