@@ -49,5 +49,47 @@
 
     /* panel sedikit beda tone di dark biar tetap kebaca di atas bg gelap */
     --color-panel: #1A3A33;
+    --color-panel-line: #335249;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* keyboard focus keliatan, ikut warna aksen */
+    :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+        border-radius: 3px;
+    }
+
+    /* reveal halus pas section masuk viewport */
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    [data-reveal].is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        [data-reveal] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
 }
 

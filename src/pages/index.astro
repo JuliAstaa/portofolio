@@ -4,12 +4,15 @@ import { featuredProject, experiments} from "../data/project";
 import { aboutMe } from "../data/about";
 import { journey } from "../data/perjalanan";
 import { now } from "../data/now";
+import { contact } from "../data/contact";
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'
 import Hero from "../components/Hero.astro";
 import Project from "../components/Project.astro";
 import About from "../components/About.astro"
 import Perjalanan from "../components/Perjalanan.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -21,5 +24,7 @@ import Perjalanan from "../components/Perjalanan.astro";
 	<Project project={featuredProject} experiments={experiments}/>
 	<About about={aboutMe}/>
 	<Perjalanan journey={journey} now={now}/>
+	<Contact contact={contact}/>
+	<Footer name="Juli Astawa" available={contact.available} availableText={contact.availableText}/>
 
 </Layout>

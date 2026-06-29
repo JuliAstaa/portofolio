@@ -1,6 +1,7 @@
 ---
 
 import type { Project, Experiment } from "../types/project";
+import SectionHeader from "./SectionHeader.astro";
 
 interface Props {
     project: Project;
@@ -11,13 +12,9 @@ const { project, experiments } = Astro.props as Props;
 
 ---
 
-<div id="work" class="py-24 w-full border-b border-accent/20 scroll-mt-20">
+<div id="work" data-reveal class="py-24 w-full border-b border-line scroll-mt-20">
     <div class="max-w-content w-full mx-auto px-6 md:px-8">
-        <div class="flex justify-between text-sm">
-            <p class="font-jetbrains text-accent tracking-widest">01 / KARYA</p>
-            <p class="font-jetbrains tracking-widest text-muted">FEATURED & EKSPERIMEN</p>
-        </div>
-        <span class="mt-4 block h-0.5 w-full bg-accent"></span>
+        <SectionHeader index="01" title="Karya" note="Featured & eksperimen" />
         <div class="mt-8 main-project grid lg:grid-cols-2 gap-10 items-start">
             <div class="left-content">
                 <div class="user-active w-fit flex gap-2 items-center bg-accent/20 py-1 px-4 rounded-full text-xs text-muted font-jetbrains">
@@ -32,9 +29,9 @@ const { project, experiments } = Astro.props as Props;
                         ))}
                     </div>
                     <div class="action-button flex flex-wrap gap-4">
-                        <a class="block px-5 py-3 bg-accent font-jetbrains text-bg text-sm rounded-xl" href={project.links.live}>Buka produk</a>
-                        <a class="border border-accent rounded-xl px-5 py-3 font-jetbrains text-sm text-accent" href={project.links.caseStudy}>Baca case study</a>
-                        <a class="border border-accent rounded-xl px-5 py-3 font-jetbrains text-sm text-accent" href={project.links.repo}>Repo</a>
+                        <a class="block px-5 py-3 bg-accent font-jetbrains text-bg text-sm rounded-lg" href={project.links.live}>Buka produk</a>
+                        <a class="border border-accent rounded-lg px-5 py-3 font-jetbrains text-sm text-accent" href={project.links.caseStudy}>Baca case study</a>
+                        <a class="border border-accent rounded-lg px-5 py-3 font-jetbrains text-sm text-accent" href={project.links.repo}>Repo</a>
                     </div>
                 </div>
 
@@ -43,14 +40,14 @@ const { project, experiments } = Astro.props as Props;
                 <div class="rounded-2xl border border-line">
 
                     <!-- Label atas -->
-                    <div class="border-b border-line px-8 pt-6 pb-4">
+                    <div class="border-b border-line px-6 md:px-8 pt-6 pb-4">
                     <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">Metrik Live</p>
                     </div>
 
                     <!-- Baris metrik (dari data) -->
                     {project.metrics.map((metric, i) => (
-                        <div class:list={["flex items-baseline justify-between px-8 py-6", i < project.metrics.length - 1 && "border-b border-line"]}>
-                            <p class="text-6xl font-medium tracking-tight">{metric.value}</p>
+                        <div class:list={["flex items-baseline justify-between gap-3 px-6 md:px-8 py-6", i < project.metrics.length - 1 && "border-b border-line"]}>
+                            <p class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight tabular-nums">{metric.value}</p>
                             <p class="font-jetbrains text-xs uppercase tracking-widest text-muted">{metric.label}</p>
                         </div>
                     ))}

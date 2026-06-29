@@ -1,0 +1,16 @@
+---
+// Header section editorial: nomor + judul + garis hairline. Dipakai semua section.
+interface Props {
+    index: string; // "01"
+    title: string; // "Karya"
+    note?: string; // label kanan opsional, mis. "Featured & eksperimen"
+}
+
+const { index, title, note } = Astro.props as Props;
+---
+
+<div class="flex items-center justify-between gap-4 text-sm">
+    <p class="font-jetbrains text-accent tracking-widest uppercase">{index} / {title}</p>
+    {note && <p class="font-jetbrains text-muted tracking-widest uppercase">{note}</p>}
+</div>
+<span class="mt-4 block h-px w-full bg-line"></span>

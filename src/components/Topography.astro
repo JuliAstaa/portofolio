@@ -1,12 +1,25 @@
 ---
-// Garis kontur peta topografi: ring konsentris samar.
-// Elemen grafis jembatan Swiss (sistem) <-> alam (gunung).
-// Dipakai sebagai background absolut; warna ikut --color-accent.
-const rings = [1, 1.28, 1.6, 1.96, 2.36, 2.8, 3.28];
-const cx = 600;
-const cy = 320;
+// Garis kontur peta topografi. Bentuk dasar irregular (ridge berlekuk) di-nest
+// uniform dari satu pusat -> garis gak pernah nyilang, tetap organik.
+// Warna ikut --color-accent.
+
+// Bentuk dasar: punggungan berlekuk (ada tonjolan + cekungan halus).
 const blob =
-    "M 480 300 C 480 240 540 200 600 200 C 672 200 732 250 720 312 C 712 364 660 402 590 396 C 520 390 480 360 480 300 Z";
+    "M 470 300 C 470 238 532 204 602 214 C 648 221 662 254 702 260 C 758 268 772 320 742 360 C 712 398 650 406 600 392 C 560 381 546 360 510 354 C 474 348 455 330 470 300 Z";
+
+// Pusat skala kira-kira di tengah bentuk biar nesting rapi.
+const cx = 606;
+const cy = 304;
+
+// Ring: skala makin besar makin samar. Jarak antar-ring sedikit beda biar natural.
+const rings = [
+    { s: 1.0, w: 1.1, o: 0.95 },
+    { s: 1.34, w: 1.0, o: 0.8 },
+    { s: 1.7, w: 1.0, o: 0.66 },
+    { s: 2.12, w: 0.9, o: 0.54 },
+    { s: 2.62, w: 0.9, o: 0.42 },
+    { s: 3.2, w: 0.8, o: 0.32 },
+];
 ---
 
 <svg
@@ -16,12 +29,13 @@ const blob =
     preserveAspectRatio="xMaxYMax slice"
     aria-hidden="true"
 >
-    {rings.map((s) => (
+    {rings.map((r) => (
         <path
             d={blob}
             stroke="currentColor"
-            stroke-width={1 / s}
-            transform={`translate(${cx} ${cy}) scale(${s}) translate(${-cx} ${-cy})`}
+            stroke-width={r.w}
+            stroke-opacity={r.o}
+            transform={`translate(${cx} ${cy}) scale(${r.s}) translate(${-cx} ${-cy})`}
         />
     ))}
 </svg>

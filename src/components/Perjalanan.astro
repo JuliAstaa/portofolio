@@ -2,6 +2,7 @@
 import type { JourneyItem } from "../types/perjalanan";
 import type { Now as NowType } from "../types/now";
 import Now from "./Now.astro";
+import SectionHeader from "./SectionHeader.astro";
 
 interface Props {
     journey: JourneyItem[];
@@ -11,12 +12,9 @@ interface Props {
 const { journey, now } = Astro.props as Props;
 ---
 
-<div id="perjalanan" class="py-24 w-full border-b border-accent/20 scroll-mt-20">
+<div id="perjalanan" data-reveal class="py-24 w-full border-b border-line scroll-mt-20">
     <div class="max-w-content w-full mx-auto px-6 md:px-8">
-        <div class="text-sm">
-            <p class="font-jetbrains text-accent tracking-widest">03 / PERJALANAN</p>
-        </div>
-        <span class="mt-4 block h-px w-full bg-line"></span>
+        <SectionHeader index="03" title="Perjalanan" note="Now" />
 
         <div class="mt-10 grid lg:grid-cols-2 gap-12 items-start">
             <!-- Kiri: timeline -->
