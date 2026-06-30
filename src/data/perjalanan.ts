@@ -4,22 +4,28 @@ import type { JourneyItem } from "../types/perjalanan";
 // EDIT isi ini sesuai perjalananmu.
 export const journey: JourneyItem[] = [
     {
-        year: "2025",
-        title: "Membangun & merawat Zentix",
+        year: "2026",
+        title: "Go & membangun Zentix",
         description:
-            "Mengembangkan platform tiket konser dengan user aktif. Fokus REST API, keamanan, dan uptime.",
+            "Mulai serius mendalami Go. Membangun dan merawat Zentix, produk yang sudah live dan punya user aktif.",
         current: true,
     },
     {
-        year: "2024",
-        title: "Backend developer, INSTIKI Developer Club",
+        year: "2025",
+        title: "Ketua INSTIKI Developer Club",
         description:
-            "Membangun beberapa web internal kampus. Belajar arsitektur API dan kerja tim.",
+            "Memimpin komunitas developer kampus periode 2025/2026. Mendalami Python dan data science sambil mengelola program dan tim.",
     },
     {
-        year: "2023",
-        title: "Mulai serius backend",
+        year: "2024",
+        title: "Masuk dunia JavaScript & React",
         description:
-            "Mendalami Go, Python, dan database. Bikin proyek latihan dari nol.",
+            "Mulai membangun antarmuka modern dengan React. Mengenal sisi frontend lebih dalam.",
+    },
+    {
+        year: "2021",
+        title: "Mulai ngoding di SMK",
+        description:
+            "Baris kode pertama lewat HTML & CSS. Awal dari semuanya.",
     },
 ];

@@ -1,6 +1,6 @@
 export const aboutMe = {
-    title: "Proses Logika, Keamanan, dan Kecepatan",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe porro autem quos vitae tempora enim earum, quibusdam, cupiditate amet, nisi sit dolor officiis sint perspiciatis deserunt beatae sunt obcaecati quisquam. Error voluptatum laudantium, illum necessitatibus optio aliquam totam dolorem veritatis, magni ad unde consequatur sequi perferendis autem eius quia quae!",
+    title: "Backend developer yang suka bongkar cara kerja sesuatu",
+    body: "Hai, aku Juli. Aku developer yang condong ke backend, dan buat aku hal baru itu bukan beban tapi mainan, aku paling nyala pas lagi ngulik sesuatu yang masih fresh dan nyambungin cara kerjanya. Sekarang aku lagi mendalami Go dan FastAPI sebagai senjata utamaku di backend. Salah satu hasilnya, Zentix, sebuah produk yang udah live dan punya user aktif.",
     techstack: [
         "Go",
         "Python",
